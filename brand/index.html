@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nomitech — Brand Identity Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange:   #E8611A;
+      --orange2:  #FF7A2F;
+      --black:    #1A1A1A;
+      --charcoal: #2B3040;
+      --bg:       #F2F2F2;
+      --white:    #FFFFFF;
+      --text:     #1A1A1A;
+      --text2:    #555555;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: #e8e8e8; }
+
+    /* ── SLIDE ── */
+    .slide {
+      position: relative;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto 4px;
+      background: var(--bg);
+      min-height: 560px;
+      overflow: hidden;
+    }
+    .slide-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      min-height: 560px;
+    }
+
+    /* ── BLOBS ── */
+    .blob-tr {
+      position: absolute; top: 0; right: 0;
+      width: 420px; height: 320px;
+      pointer-events: none; z-index: 1;
+    }
+    .blob-bl {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      width: 100%; height: 220px;
+      pointer-events: none; z-index: 1;
+    }
+
+    /* ── PAGE NUMBER ── */
+    .pg-num {
+      position: absolute; bottom: 28px; right: 40px;
+      font-size: 13px; color: #999; z-index: 10;
+      font-weight: 400;
+    }
+
+    /* ── SECTION LABEL ── */
+    .sec-label {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 1px; color: var(--text2);
+      margin-bottom: 6px;
+    }
+
+    /* ── LEFT PANEL ── */
+    .left {
+      width: 380px;
+      flex-shrink: 0;
+      padding: 60px 48px 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid rgba(0,0,0,.07);
+    }
+    .left h2 {
+      font-size: 32px; font-weight: 800;
+      line-height: 1.15; margin-bottom: 20px;
+      color: var(--text);
+    }
+    .left p {
+      font-size: 14px; color: var(--text2);
+      line-height: 1.8; margin-bottom: 10px;
+    }
+
+    /* ── RIGHT PANEL ── */
+    .right {
+      flex: 1;
+      padding: 60px 60px 80px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: var(--bg);
+      min-height: 600px;
+    }
+    .cover .slide-inner {
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 80px 100px;
+      min-height: 600px;
+    }
+    .cover-eyebrow {
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--text2); margin-bottom: 20px;
+    }
+    .cover-title {
+      font-size: 80px; font-weight: 900;
+      line-height: 1; color: var(--text);
+      margin-bottom: 6px;
+    }
+    .cover-title span { color: var(--orange); }
+    .cover-sub {
+      font-size: 36px; font-weight: 800;
+      color: var(--text); margin-bottom: 36px;
+    }
+    .cover-meta {
+      display: flex; gap: 56px; margin-top: 48px;
+    }
+    .cover-meta-item .lbl {
+      font-size: 11px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #999; margin-bottom: 4px;
+    }
+    .cover-meta-item .val {
+      font-size: 14px; color: var(--text2);
+    }
+
+    /* ── DIVIDER SLIDE ── */
+    .divider-slide .slide-inner {
+      align-items: center;
+      padding: 80px;
+      min-height: 400px;
+    }
+    .divider-slide h2 {
+      font-size: 64px; font-weight: 900;
+      color: var(--text);
+    }
+
+    /* ── LOGO BOXES ── */
+    .logo-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .logo-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      min-height: 160px;
+    }
+    .logo-box.dark { background: var(--black); border-color: #111; }
+    .logo-box img {
+      max-height: 80px; max-width: 180px;
+      object-fit: contain;
+    }
+    .logo-box-lbl {
+      font-size: 11px; letter-spacing: 1px;
+      text-transform: uppercase; color: #999;
+    }
+    .logo-box.dark .logo-box-lbl { color: #444; }
+
+    /* ── COLOR SWATCHES ── */
+    .color-row {
+      display: flex; gap: 12px; margin-bottom: 20px;
+    }
+    .swatch {
+      flex: 1; border-radius: 6px; overflow: hidden;
+      border: 1px solid rgba(0,0,0,.1);
+    }
+    .swatch-color { height: 120px; }
+    .swatch-info { background: #fff; padding: 14px 16px; }
+    .swatch-name { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+    .swatch-hex { font-size: 11px; color: #999; font-family: monospace; }
+
+    /* ── COMBO PALETTE ── */
+    .combo-row {
+      display: flex; gap: 12px;
+    }
+    .combo-card {
+      flex: 1; background: #fff;
+      border: 1px solid #ddd; border-radius: 6px;
+      padding: 16px; overflow: hidden;
+    }
+    .combo-card-lbl {
+      font-size: 10px; letter-spacing: 1px;
+      text-transform: uppercase; color: #999;
+      margin-bottom: 12px;
+    }
+    .combo-blobs {
+      display: flex; gap: -20px;
+      height: 80px; align-items: flex-end;
+      position: relative; overflow: visible;
+    }
+    .combo-blob {
+      width: 60px; height: 80px;
+      border-radius: 50% 50% 0 0;
+      margin-left: -12px;
+    }
+    .combo-blob:first-child { margin-left: 0; }
+
+    /* ── TYPE TABLE ── */
+    .type-table { width: 100%; border-collapse: collapse; }
+    .type-table tr { border-bottom: 1px solid #e0e0e0; }
+    .type-table td { padding: 12px 0; vertical-align: middle; }
+    .type-wt { font-size: 11px; color: #999; width: 100px; }
+
+    /* ── RULES GRID ── */
+    .rules-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .rule-col { }
+    .rule-col-head {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 16px;
+    }
+    .rule-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 800; color: #fff;
+      flex-shrink: 0;
+    }
+    .rule-icon.ok { background: #22c55e; }
+    .rule-icon.no { background: #ef4444; }
+    .rule-item {
+      font-size: 13px; color: var(--text2);
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      display: flex; gap: 8px;
+    }
+    .rule-item::before { color: #999; }
+
+    /* ── TAGLINES ── */
+    .tagline-item {
+      display: flex; align-items: center; gap: 20px;
+      padding: 16px 20px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .tagline-item:first-child { border-top: 1px solid #e0e0e0; }
+    .tagline-num {
+      font-size: 11px; font-weight: 700;
+      color: var(--orange); min-width: 28px;
+    }
+    .tagline-text { font-size: 18px; font-weight: 700; }
+    .tagline-ctx { font-size: 12px; color: #999; margin-left: auto; }
+
+    /* ── CLEAR SPACE ── */
+    .clearspace-demo {
+      display: inline-block;
+      padding: 40px;
+      position: relative;
+    }
+    .clearspace-demo::before,
+    .clearspace-demo::after {
+      content: '';
+      position: absolute;
+      border: 1.5px dashed var(--orange);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+    .clearspace-demo::before { inset: 20px; }
+    .cs-arrow {
+      font-size: 11px; color: var(--orange);
+      margin-top: 8px;
+    }
+
+    /* ── VISION SLIDE ── */
+    .vision-slide .slide-inner {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px;
+      text-align: center;
+      min-height: 560px;
+    }
+    .vision-lbl { font-size: 14px; font-weight: 700; margin-bottom: 24px; }
+    .vision-title {
+      font-size: 64px; font-weight: 700;
+      font-style: italic; color: var(--text);
+      line-height: 1.1;
+    }
+    .vision-title span { color: var(--orange); }
+    .vision-sub {
+      font-size: 18px; color: var(--text2);
+      margin-top: 24px; max-width: 600px; line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     COVER
+════════════════════════════════════ -->
+<div class="slide cover">
+
+  <div class="slide-inner">
+    <div class="cover-eyebrow">GPG Marketing — Ver. 1.0, Apr 2026</div>
+    <div class="cover-title">nomi<span>tech</span></div>
+    <div class="cover-sub">Brand Identity Guidelines</div>
+    <div style="width:60px;height:4px;background:var(--orange);border-radius:2px;margin-top:8px;"></div>
+    <div class="cover-meta">
+      <div class="cover-meta-item"><div class="lbl">Thương hiệu</div><div class="val">Nomitech</div></div>
+      <div class="cover-meta-item"><div class="lbl">Phiên bản</div><div class="val">1.0 — 2026</div></div>
+      <div class="cover-meta-item"><div class="lbl">Font chính</div><div class="val">DM Sans</div></div>
+      <div class="cover-meta-item"><div class="lbl">Ngành</div><div class="val">PC & Gaming Gear</div></div>
+    </div>
+  </div>
+  <div class="pg-num" style="color:#777">—</div>
+</div>
+
+<!-- ═══════════════════════════════════
+     BRAND VISION
+════════════════════════════════════ -->
+<div class="slide vision-slide">
+
+  <div class="slide-inner">
+    <div class="vision-lbl">Brand Vision</div>
+    <div class="vision-title">Your Setup,<br/>Your Style, <span>Our Expertise</span></div>
+    <div class="vision-sub">Cung cấp linh kiện máy tính và gaming gear chính hãng, giúp người Việt xây dựng góc làm việc và gaming lý tưởng với chi phí hợp lý nhất.</div>
+  </div>
+  <div class="pg-num">01</div>
+</div>
+
+<!-- ═══════════════════════════════════
+     SECTION DIVIDER: BASIC SYSTEM
+════════════════════════════════════ -->
+<div class="slide divider-slide" style="background:#1A1A1A;min-height:400px">
+
+  <div class="slide-inner" style="align-items:center;padding:80px;min-height:400px">
+    <h2 style="font-size:72px;font-weight:900;color:#fff">Basic System</h2>
+  </div>
+  <div class="pg-num" style="color:#555">02</div>
+</div>
+
+<!-- ═══════════════════════════════════
+     LOGO — CLEAR SPACE
+════════════════════════════════════ -->
+<div class="slide">
+
+  <div class="slide-inner">
+    <div class="left">
+      <div class="sec-label">Basic System</div>
+      <h2>Clear Space<br/>Logo Tiêu Chuẩn</h2>
+      <p>Để đảm bảo tính toàn vẹn và tác động thị giác của logo Nomitech, luôn duy trì khoảng trắng xung quanh logo.</p>
+      <p>Khoảng trắng tối thiểu bằng chiều cao của ký tự "N" trong logo mark.</p>
+    </div>
+    <div class="right" style="align-items:center;justify-content:center;gap:32px;flex-direction:row;flex-wrap:wrap">
+      <!-- Clear space demo vertical -->
+      <div style="text-align:center">
+        <div style="display:inline-block;padding:32px;border:1.5px dashed #bbb;border-radius:8px;background:#fff;position:relative">
+          <div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
+          <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
+          <div style="position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
+          <div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
+          <img id="cs-logo-v" src="../logo.png" style="height:100px;width:auto;display:block"/>
+        </div>
+        <div style="font-size:11px;color:#999;margin-top:10px;letter-spacing:.5px">Logo Dọc</div>
+      </div>
+      <!-- Clear space demo horizontal -->
+      <div style="text-align:center">
+        <div style="display:inline-block;padding:24px 32px;border:1.5px dashed #bbb;border-radius:8px;background:#fff;position:relative">
+          <div style="position:absolute;top:6px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
+          <div style="position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
+          <div style="position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
+          <div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
+          <img id="cs-logo-h" src="../logo-horizontal.png" style="height:60px;width:auto;display:block"
+               onerror="this.src='../logo.png'"/>
+        </div>
+        <div style="font-size:11px;color:#999;margin-top:10px;letter-spacing:.5px">Logo Ngang</div>
+      </div>
+    </div>
+  </div>
+  <div class="pg-num">03</div>
+</div>
+
+<!-- ═══════════════════════════════════
+     LOGO USAGE 01
+════════════════════════════════════ -->
+<div class="slide">
+
+  <div class="slide-inner">
+    <div class="left">
+      <div class="sec-label">Basic System</div>
+      <h2>Logo Usage 01</h2>
+      <p>Logo luôn được thể hiện nhất quán. Chọn màu logo phù hợp với nền để đảm bảo khả năng đọc.</p>
+      <p style="margin-top:16px;font-size:13px;padding:12px 16px;background:#fff;border-left:3px solid var(--orange);border-radius:0 6px 6px 0;">Dùng logo màu gốc trên nền trắng/sáng.<br/><br/>Dùng logo trắng trên nền tối/đen.</p>
+    </div>
+    <div class="right">
+      <div class="logo-showcase">
+        <div class="logo-box">
+          <img id="lu-v-light" src="../logo.png" alt="Logo trên nền trắng"/>
+          <div class="logo-box-lbl">Nền trắng (Chính)</div>
+        </div>
+        <div class="logo-box dark">
+          <img id="lu-v-dark" src="../logo-white.png" alt="Logo trên nền đen"/>
+          <div class="logo-box-lbl">Nền đen</div>
+        </div>
+        <div class="logo-box" style="background:#F7F7F5">
+          <img id="lu-h-light" src="../logo-horizontal.png" alt="Logo ngang sáng"
+               onerror="this.src='../logo.png'"/>
+          <div class="logo-box-lbl">Nền xám nhạt</div>
+        </div>
+        <div class="logo-box" style="background:var(--orange)">
+          <img id="lu-v-orange" src="../logo-white.png" alt="Logo trên nền cam"/>
+          <div class="logo-box-lbl" style="color:rgba(255,255,255,.6)">Nền cam</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pg-num">04</div>
+</div>
+
+<!-- ═══════════════════════════════════
+     DOS AND DON'TS
+════════════════════════════════════ -->
+<div class="slide">
+
+  <div class="slide-inner">
+    <div class="left">
+      <div class="sec-label">Dos and Don'ts</div>
+      <h2>Logo Usage 02</h2>
+      <p>Các quy tắc bắt buộc khi sử dụng logo Nomitech trong mọi ấn phẩm truyền thông.</p>
+    </div>
+    <div class="right">
+      <div style="display:flex;gap:16px;margin-bottom:16px">
+        <div style="flex:1;display:flex;align-items:center;gap:8px">
+          <div style="width:28px;height:28px;border:1.5px solid #22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#22c55e;font-weight:800;font-size:14px;flex-shrink:0">✓</div>
+          <span style="font-size:13px;font-weight:600">Nên làm</span>
+        </div>
+        <div style="flex:1;display:flex;align-items:center;gap:8px">
+          <div style="width:28px;height:28px;border:1.5px solid #ef4444;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#ef4444;font-weight:800;font-size:14px;flex-shrink:0">✗</div>
+          <span style="font-size:13px;font-weight:600">Không nên</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:16px">
+          <div style="flex:1;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:14px 16px;font-size:13px;color:#166534">✓ Dùng logo gốc, không chỉnh sửa tỉ lệ</div>
+          <div style="flex:1;background:#fef2f2;border:1px solid #fecaca;border-radius:6px;padding:14px 16px;font-size:13px;color:#991b1b">✗ Kéo dãn hoặc bóp méo logo</div>
+        </div>
+        <div style="display:flex;gap:16px">
+          <div style="flex:1;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:14px 16px;font-size:13px;color:#166534">✓ Dùng màu theo bảng màu chính thức</div>
+          <div style="flex:1;background:#fef2f2;border:1px solid #fecaca;border-radius:6px;padding:14px 16px;font-size:13px;color:#991b1b">✗ Đổi màu logo tùy tiện</div>
+        </div>
+        <div style="display:flex;gap:16px">
+          <div style="flex:1;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:14px 16px;font-size:13px;color:#166534">✓ Giữ khoảng trắng clear space</div>
+          <div style="flex:1;background:#fef2f2;border:1px solid #fecaca;border-radius:6px;padding:14px 16px;font-size:13px;color:#991b1b">✗ Đặt logo trên nền phức tạp</div>
+        </div>
+        <div style="display:flex;gap:16px">
+          <div style="flex:1;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:14px 16px;font-size:13px;color:#166534">✓ Xuất PNG nền trong suốt cho digital</div>
+          <div style="flex:1;background:#fef2f2;border:1px solid #fecaca;border-radius:6px;padding:14px 16px;font-size:13px;color:#991b1b">✗ Thêm shadow hoặc hiệu ứng vào logo</div>
+        </div>
+        <div style="display:flex;gap:16px">
+          <div style="flex:1;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:14px 16px;font-size:13px;color:#166534">✓ Dùng logo trắng trên nền tối</div>
+          <div style="flex:1;background:#fef2f2;border:1px solid #fecaca;border-radius:6px;padding:14px 16px;font-size:13px;color:#991b1b">✗ Xoay logo theo góc bất kỳ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pg-num">05</div>
+</div>
+
+<!-- ═══════════════════════════════════
+     COLOR SCHEME 01
+════════════════════════════════════ -->
+<div class="slide">
+
+  <div class="slide-inner">
+    <div class="left">
+      <div class="sec-label">Basic System</div>
+      <h2>Color Scheme 01</h2>
+      <p>Màu chủ đạo của Nomitech là <strong>Nomitech Orange</strong>. Trắng, xám và đen là các màu nền chính.</p>
+      <p style="margin-top:12px">Sự kết hợp giữa cam, đen và trắng đảm bảo nhận diện thương hiệu trong mọi tình huống.</p>
+    </div>
+    <div class="right">
+      <div style="font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;color:#999">Main Colors</div>
+      <div class="color-row">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#E8611A"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Nomitech Orange</div>
+            <div class="swatch-hex">#E8611A &nbsp;·&nbsp; RGB 232 97 26</div>
+            <div class="swatch-hex" style="margin-top:2px">CMYK 0·58·89·9 &nbsp;·&nbsp; Primary</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#1A1A1A"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Nomitech Black</div>
+            <div class="swatch-hex">#1A1A1A &nbsp;·&nbsp; RGB 26 26 26</div>
+            <div class="swatch-hex" style="margin-top:2px">CMYK 0·0·0·90 &nbsp;·&nbsp; Text/BG</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FFFFFF;border-bottom:1px solid #eee"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Pure White</div>
+            <div class="swatch-hex">#FFFFFF &nbsp;·&nbsp; RGB 255 255 255</div>
+            <div class="swatch-hex" style="margin-top:2px">CMYK 0·0·0·0 &nbsp;·&nbsp; Background</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#2B3040"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Nomitech Charcoal</div>
+            <div class="swatch-hex">#2B3040 &nbsp;·&nbsp; RGB 43 48 64</div>
+            <div class="swatch-hex" style="margin-top:2px">CMYK 33·25·0·75 &nbsp;·&nbsp; Text</div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:20px 0 14px;color:#999">Secondary Colors</div>
+      <div class="color-row">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FF7A2F;height:80px"></div>
+          <div class="swatch-info" style="padding:10px 14px">
+            <div class="swatch-name" style="font-size:11px">Orange Light</div>
+            <div class="swatch-hex">#FF7A2F</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#C5511A;height:80px"></div>
+          <div class="swatch-info" style="padding:10px 14px">
+            <div class="swatch-name" style="font-size:11px">Orange Dark</div>
+            <div class="swatch-hex">#C5511A</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F2F2F2;border-bottom:1px solid #eee;height:80px"></div>
+          <div class="swatch-info" style="padding:10px 14px">
+            <div class="swatch-name" style="font-size:11px">Off White</div>
+            <div class="swatch-hex">#F2F2F2</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#22C55E;height:80px"></div>
+          <div class="swatch-info" style="padding:10px 14px">
+            <div class="swatch-name" style="font-size:11px">Success</div>
+            <div class="swatch-hex">#22C55E</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pg-num">06</div>
+</div>
+
+<!-- ═══════════════════════════════════
+     COLOR SCHEME 02 — COMBINATION
+════════════════════════════════════ -->
+<div class="slide">
+
+  <div class="slide-inner">
+    <div class="left">
+      <div class="sec-label">Combinations Palettes</div>
+      <h2>Color Scheme 02</h2>
+      <p>Chọn một trong các bộ màu kết hợp dưới đây khi thiết kế. Không tự tạo bộ màu mới ngoài các tổ hợp này.</p>
+    </div>
+    <div class="right" style="justify-content:center">
+      <div class="combo-row">
+        <div class="combo-card">
+          <div class="combo-card-lbl">Combination 01</div>
+          <div style="display:flex;align-items:flex-end;height:90px;gap:-8px">
+            <div style="width:55px;height:90px;background:#E8611A;border-radius:50% 50% 0 0;margin-right:-10px"></div>
+            <div style="width:55px;height:65px;background:#F2F2F2;border:1px solid #ddd;border-radius:50% 50% 0 0;margin-right:-10px"></div>
+            <div style="width:55px;height:75px;background:#999;border-radius:50% 50% 0 0;margin-right:-10px"></div>
+            <div style="width:55px;height:90px;background:#1A1A1A;border-radius:50% 50% 0 0"></div>
+          </div>
+        </div>
+        <div class="combo-card">
+          <div class="combo-card-lbl">Combination 02</div>
+          <div style="display:flex;align-items:flex-end;height:90px">
+            <div style="width:55px;height:90px;background:#FF7A2F;border-radius:50% 50% 0 0;margin-right:-10px"></div>
+            <div style="width:55px;height:65px;background:#F2F2F2;border:1px solid #ddd;border-radius:50% 50% 0 0;margin-right:-10px"></div>
+            <div style="width:55px;height:75px;background:#ccc;border-radius:50% 50% 0 0;margin-right:-10px"></div>
+            <div style="width:55px;height:90px;background:#1A1A1A;border-radius:50% 50% 0 0"></div>
+          </div>
+        </div>
+        <div class="combo-card">
+          <div class="combo-card-lbl">Combination 03</div>
+          <div style="display:flex;align-items:flex-end;height:90px">
+            <div style="width:55px;height:90px;background:#2B3040;border-radius:50% 50% 0 0;margin-right:-10px"></div>
+            <div style="width:55px;height:65px;background:#F2F2F2;border:1px solid #ddd;border-radius:50% 50% 0 0;margin-right:-10px"></div>
+            <div style="width:55px;height:75px;background:#bbb;border-radius:50% 50% 0 0;margin-right:-10px"></div>
+            <div style="width:55px;height:90px;background:#E8611A;border-radius:50% 50% 0 0"></div>
+          </div>
+        </div>
+        <div class="combo-card">
+          <div class="combo-card-lbl">Combination 04</div>
+          <div style="display:flex;align-items:flex-end;height:90px">
+            <div style="width:55px;height:90px;background:#E8611A;border-radius:50% 50% 0 0;margin-right:-10px"></div>
+            <div style="width:55px;height:65px;background:#fff;border:1px solid #ddd;border-radius:50% 50% 0 0;margin-right:-10px"></div>
+            <div style="width:55px;height:75px;background:#2B3040;border-radius:50% 50% 0 0;margin-right:-10px"></div>
+            <div style="width:55px;height:90px;background:#1A1A1A;border-radius:50% 50% 0 0"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pg-num">07</div>
+</div>
+
+<!-- ═══════════════════════════════════
+     TYPEFACES
+════════════════════════════════════ -->
+<div class="slide">
+
+  <div class="slide-inner">
+    <div class="left">
+      <div class="sec-label">Basic System</div>
+      <h2>Typefaces</h2>
+      <p>Font chính thức của Nomitech là <strong>DM Sans</strong> — hiện đại, dễ đọc, hỗ trợ đầy đủ tiếng Việt.</p>
+      <p style="margin-top:12px">Sử dụng các trọng số từ Light (300) đến Black (900) tùy theo ngữ cảnh.</p>
+    </div>
+    <div class="right">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid #ddd;border-radius:8px;overflow:hidden;background:#fff">
+        <div style="padding:16px 20px;font-size:12px;font-weight:700;color:#999;border-bottom:1px solid #eee;letter-spacing:1px">DM Sans</div>
+        <div style="padding:16px 20px;font-size:12px;font-weight:700;color:#999;border-bottom:1px solid #eee;letter-spacing:1px;border-left:1px solid #eee">DM Sans</div>
+        <div style="padding:16px 20px;font-size:12px;font-weight:700;color:#999;border-bottom:1px solid #eee;letter-spacing:1px;border-left:1px solid #eee">DM Sans Italic</div>
+        <div style="padding:14px 20px;border-bottom:1px solid #eee"><span style="font-size:11px;color:#bbb;margin-right:12px">900</span><span style="font-weight:900;font-size:28px">Aa</span></div>
+        <div style="padding:14px 20px;border-bottom:1px solid #eee;border-left:1px solid #eee"><span style="font-size:11px;color:#bbb;margin-right:12px">700</span><span style="font-weight:700;font-size:28px">Aa</span></div>
+        <div style="padding:14px 20px;border-bottom:1px solid #eee;border-left:1px solid #eee"><span style="font-size:11px;color:#bbb;margin-right:12px">700i</span><span style="font-weight:700;font-style:italic;font-size:28px">Aa</span></div>
+        <div style="padding:14px 20px;border-bottom:1px solid #eee"><span style="font-size:11px;color:#bbb;margin-right:12px">800</span><span style="font-weight:800;font-size:28px">Aa</span></div>
+        <div style="padding:14px 20px;border-bottom:1px solid #eee;border-left:1px solid #eee"><span style="font-size:11px;color:#bbb;margin-right:12px">600</span><span style="font-weight:600;font-size:28px">Aa</span></div>
+        <div style="padding:14px 20px;border-bottom:1px solid #eee;border-left:1px solid #eee"><span style="font-size:11px;color:#bbb;margin-right:12px">400i</span><span style="font-weight:400;font-style:italic;font-size:28px">Aa</span></div>
+        <div style="padding:14px 20px;border-bottom:1px solid #eee"><span style="font-size:11px;color:#bbb;margin-right:12px">500</span><span style="font-weight:500;font-size:28px">Aa</span></div>
+        <div style="padding:14px 20px;border-bottom:1px solid #eee;border-left:1px solid #eee"><span style="font-size:11px;color:#bbb;margin-right:12px">400</span><span style="font-weight:400;font-size:28px">Aa</span></div>
+        <div style="padding:14px 20px;border-bottom:1px solid #eee;border-left:1px solid #eee;color:#999"><span style="font-size:11px;margin-right:12px">Heading</span><span style="font-weight:800;font-size:18px;color:#1A1A1A">Your Setup, Your Style</span></div>
+        <div style="padding:14px 20px"><span style="font-size:11px;color:#bbb;margin-right:12px">300</span><span style="font-weight:300;font-size:28px">Aa</span></div>
+        <div style="padding:14px 20px;border-left:1px solid #eee"><span style="font-size:11px;color:#bbb;margin-right:12px">300</span><span style="font-weight:300;font-size:28px">Aa</span></div>
+        <div style="padding:14px 20px;border-left:1px solid #eee;color:#999"><span style="font-size:11px;margin-right:12px">Body</span><span style="font-weight:400;font-size:14px;color:#555">Linh kiện chính hãng, tư vấn tận tâm.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pg-num">08</div>
+</div>
+
+<!-- ═══════════════════════════════════
+     TAGLINES
+════════════════════════════════════ -->
+<div class="slide">
+
+  <div class="slide-inner">
+    <div class="left">
+      <div class="sec-label">Tagline Usage</div>
+      <h2>Tagline Usage 01</h2>
+      <p>Khẩu hiệu thương hiệu <strong>"Your Setup, Your Style, Our Expertise"</strong> phải được thể hiện với độ rõ ràng tối đa.</p>
+      <p style="margin-top:12px">Tagline được dùng nằm ngang, không lồng vào headline, nền phải tương phản đủ để đọc được.</p>
+    </div>
+    <div class="right">
+      <!-- Red/orange on white -->
+      <div style="background:#fff;border:1px solid #ddd;border-radius:6px;padding:28px 36px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between">
+        <div style="font-size:22px;font-weight:700;font-style:italic;color:var(--orange)">Your Setup, Your Style, Our Expertise</div>
+        <div style="font-size:11px;color:#999;text-align:right;max-width:160px">Nền trắng,<br/>dùng màu cam</div>
+      </div>
+      <!-- White on black -->
+      <div style="background:#1A1A1A;border-radius:6px;padding:28px 36px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between">
+        <div style="font-size:22px;font-weight:700;font-style:italic;color:#fff">Your Setup, Your Style, Our Expertise</div>
+        <div style="font-size:11px;color:#555;text-align:right;max-width:160px">Nền tối,<br/>dùng màu trắng</div>
+      </div>
+      <!-- Black on gray -->
+      <div style="background:#F2F2F2;border:1px solid #ddd;border-radius:6px;padding:28px 36px;display:flex;align-items:center;justify-content:space-between">
+        <div style="font-size:22px;font-weight:700;font-style:italic;color:#1A1A1A">Your Setup, Your Style, Our Expertise</div>
+        <div style="font-size:11px;color:#999;text-align:right;max-width:160px">Nền xám,<br/>dùng màu đen</div>
+      </div>
+    </div>
+  </div>
+  <div class="pg-num">09</div>
+</div>
+
+<!-- ═══════════════════════════════════
+     TAGLINE DOS AND DON'TS
+════════════════════════════════════ -->
+<div class="slide">
+
+  <div class="slide-inner">
+    <div class="left">
+      <div class="sec-label">Dos and Don'ts</div>
+      <h2>Tagline Usage 02</h2>
+      <ol style="font-size:13px;color:var(--text2);line-height:2;padding-left:18px">
+        <li>Tagline chỉ được hiển thị nằm ngang.</li>
+        <li>Không đặt tagline trong headline hoặc copy.</li>
+        <li>Nền phải sạch và tương phản tốt.</li>
+        <li>Màu sắc phải đồng nhất: toàn cam, toàn đen, hoặc toàn trắng.</li>
+        <li>Không thay đổi font hoặc trọng số chữ.</li>
+      </ol>
+    </div>
+    <div class="right">
+      <div style="display:flex;gap:20px;margin-bottom:16px">
+        <div style="flex:1;text-align:center"><div style="width:28px;height:28px;border:1.5px solid #22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#22c55e;font-weight:800;margin:0 auto 8px">✓</div></div>
+        <div style="flex:1;text-align:center"><div style="width:28px;height:28px;border:1.5px solid #ef4444;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#ef4444;font-weight:800;margin:0 auto 8px">✗</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:12px">
+          <div style="flex:1;background:#fff;border:1px solid #ddd;border-radius:6px;padding:16px;text-align:center;font-size:16px;font-weight:700;font-style:italic;color:var(--orange)">Your Setup, Your Style</div>
+          <div style="flex:1;background:#fff;border:1px solid #ddd;border-radius:6px;padding:16px;text-align:center;font-size:11px;font-weight:700;font-style:italic;color:var(--orange);display:flex;align-items:center;justify-content:center">Your Setup, Your Style, Our Expertise</div>
+        </div>
+        <div style="display:flex;gap:12px">
+          <div style="flex:1;background:#fff;border:1px solid #ddd;border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:4px"><div style="font-size:13px;font-weight:700;color:#ccc">YOUR HEADLINE</div><div style="font-size:11px;font-style:italic;color:var(--orange);text-align:right">Your Setup, Your Style</div></div>
+          <div style="flex:1;background:#fff;border:1px solid #ddd;border-radius:6px;padding:16px;display:flex;align-items:center;justify-content:center"><span style="font-size:14px;font-weight:700;color:#ccc">YOUR HEADLINE </span><span style="font-size:10px;font-style:italic;color:var(--orange);margin-left:4px">Your Setup, Your Style</span></div>
+        </div>
+        <div style="display:flex;gap:12px">
+          <div style="flex:1;background:#F2F2F2;border:1px solid #ddd;border-radius:6px;padding:16px;text-align:center;font-size:15px;font-weight:700;font-style:italic;color:#1A1A1A">Your Setup, Your Style</div>
+          <div style="flex:1;background:#555;border-radius:6px;padding:16px;text-align:center;font-size:15px;font-weight:700;font-style:italic;color:#888">Your Setup, Your Style</div>
+        </div>
+        <div style="display:flex;gap:12px">
+          <div style="flex:1;background:#fff;border:1px solid #ddd;border-radius:6px;padding:16px;text-align:center;font-size:15px;font-weight:700;font-style:italic;color:var(--orange)">Your Setup, Your Style</div>
+          <div style="flex:1;background:#fff;border:1px solid #ddd;border-radius:6px;padding:16px;text-align:center;font-size:15px;font-weight:700;font-style:italic"><span style="color:var(--orange)">Build </span><span style="color:#1A1A1A">PC Đỉnh</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pg-num">10</div>
+</div>
+
+<script>
+// Tạo logo trắng tự động từ logo.png
+function makeWhiteLogo(src, cb) {
+  var img = new Image();
+  img.onload = function() {
+    var c = document.createElement('canvas');
+    c.width = img.width; c.height = img.height;
+    var ctx = c.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+    var d = ctx.getImageData(0, 0, c.width, c.height), px = d.data;
+    for (var i = 0; i < px.length; i += 4) {
+      if (px[i+3] < 20) continue;
+      var br = (px[i]*299 + px[i+1]*587 + px[i+2]*114) / 1000;
+      if (br > 235) { px[i+3] = 0; }
+      else { px[i] = px[i+1] = px[i+2] = 255; }
+    }
+    ctx.putImageData(d, 0, 0);
+    cb(c.toDataURL('image/png'));
+  };
+  img.src = src;
+}
+window.addEventListener('load', function() {
+  makeWhiteLogo('../logo.png', function(w) {
+    ['lu-v-dark','lu-v-orange'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.src = w;
+    });
+  });
+});
+</script>
+</body>
+</html>

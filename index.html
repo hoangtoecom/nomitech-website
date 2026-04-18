@@ -877,7 +877,7 @@
   <div class="footer-cols">
     <div class="footer-col">
       <div class="logo" style="margin-bottom:16px">
-        <img src="logo.png" alt="Nomitech" style="height:48px;width:auto;max-width:160px;object-fit:contain;"
+        <img id="footer-logo" src="logo.png" alt="Nomitech" style="height:48px;width:auto;max-width:160px;object-fit:contain;"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
         <span style="display:none;align-items:center;gap:10px">
           <svg width="32" height="30" viewBox="0 0 38 36" fill="none">
@@ -919,6 +919,26 @@
 </footer>
 
 <script>
+  // Tạo logo trắng cho footer tối
+  (function(){
+    var img = new Image();
+    img.onload = function() {
+      var c = document.createElement('canvas');
+      c.width = img.width; c.height = img.height;
+      var ctx = c.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      var d = ctx.getImageData(0, 0, c.width, c.height), px = d.data;
+      for (var i = 0; i < px.length; i += 4) {
+        if (px[i+3] < 20) continue;
+        px[i] = px[i+1] = px[i+2] = 255;
+      }
+      ctx.putImageData(d, 0, 0);
+      var el = document.getElementById('footer-logo');
+      if (el) el.src = c.toDataURL('image/png');
+    };
+    img.src = 'logo.png';
+  })();
+
   (function(){
     var end=new Date();
     end.setHours(end.getHours()+17,end.getMinutes()+34,end.getSeconds()+26,0);
