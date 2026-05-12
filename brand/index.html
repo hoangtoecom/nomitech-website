@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nomitech — Brand Identity Guidelines</title>
+  <title>NomiTech Brand Guideline</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap" rel="stylesheet">
   <style>
     :root {
       --orange:   #E8611A;
@@ -19,7 +19,7 @@
       --text2:    #555555;
     }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'DM Sans', sans-serif; background: #e8e8e8; }
+    body { font-family: 'Be Vietnam Pro', sans-serif; background: #e8e8e8; }
 
     /* ── SLIDE ── */
     .slide {
@@ -150,25 +150,25 @@
     .logo-box {
       background: #fff;
       border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 36px 28px;
+      border-radius: 8px;
+      padding: 40px 32px 28px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 16px;
-      min-height: 160px;
+      gap: 20px;
+      height: 300px;
     }
     .logo-box.dark { background: var(--black); border-color: #111; }
     .logo-box img {
-      max-height: 80px; max-width: 180px;
-      object-fit: contain;
+      max-height: 155px; max-width: 70%;
+      width: auto; height: auto; object-fit: contain;
     }
     .logo-box-lbl {
       font-size: 11px; letter-spacing: 1px;
       text-transform: uppercase; color: #999;
     }
-    .logo-box.dark .logo-box-lbl { color: #444; }
+    .logo-box.dark .logo-box-lbl { color: #555; }
 
     /* ── COLOR SWATCHES ── */
     .color-row {
@@ -295,6 +295,33 @@
       font-size: 18px; color: var(--text2);
       margin-top: 24px; max-width: 600px; line-height: 1.7;
     }
+
+    /* ── PRINT BUTTON ── */
+    .print-btn {
+      position: fixed; bottom: 32px; right: 32px;
+      background: var(--orange); color: #fff; border: none;
+      padding: 14px 24px; border-radius: 8px;
+      font-family: inherit; font-size: 14px; font-weight: 700;
+      cursor: pointer; z-index: 999;
+      box-shadow: 0 4px 20px rgba(232,97,26,.4);
+      transition: background .2s;
+    }
+    .print-btn:hover { background: #c5511a; }
+
+    /* ── PDF PRINT STYLES ── */
+    @media print {
+      @page { size: A4 landscape; margin: 0; }
+      body { background: white !important; }
+      .print-btn { display: none !important; }
+      .slide {
+        max-width: 100% !important;
+        margin: 0 !important;
+        page-break-after: always;
+        break-after: page;
+        min-height: 100vh;
+      }
+      .slide-inner { min-height: 100vh; }
+    }
   </style>
 </head>
 <body>
@@ -363,7 +390,7 @@
           <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
           <div style="position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
           <div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
-          <img id="cs-logo-v" src="../logo.png" style="height:100px;width:auto;display:block"/>
+          <img id="cs-logo-v" src="../logo.png" style="height:180px;width:auto;display:block"/>
         </div>
         <div style="font-size:11px;color:#999;margin-top:10px;letter-spacing:.5px">Logo Dọc</div>
       </div>
@@ -374,7 +401,7 @@
           <div style="position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
           <div style="position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
           <div style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--orange);font-weight:600">N</div>
-          <img id="cs-logo-h" src="../logo-horizontal.png" style="height:60px;width:auto;display:block"
+          <img id="cs-logo-h" src="../logo-horizontal.png" style="width:220px;height:auto;display:block"
                onerror="this.src='../logo.png'"/>
         </div>
         <div style="font-size:11px;color:#999;margin-top:10px;letter-spacing:.5px">Logo Ngang</div>
@@ -403,17 +430,20 @@
           <div class="logo-box-lbl">Nền trắng (Chính)</div>
         </div>
         <div class="logo-box dark">
-          <img id="lu-v-dark" src="../logo-white.png" alt="Logo trên nền đen"/>
+          <img src="../logo.png" alt="Logo trên nền đen" style="filter:brightness(0) invert(1)"/>
           <div class="logo-box-lbl">Nền đen</div>
         </div>
         <div class="logo-box" style="background:#F7F7F5">
-          <img id="lu-h-light" src="../logo-horizontal.png" alt="Logo ngang sáng"
+          <img src="../logo-horizontal.png" alt="Logo ngang sáng"
+               style="width:82%;height:auto;max-height:none"
                onerror="this.src='../logo.png'"/>
           <div class="logo-box-lbl">Nền xám nhạt</div>
         </div>
         <div class="logo-box" style="background:var(--orange)">
-          <img id="lu-v-orange" src="../logo-white.png" alt="Logo trên nền cam"/>
-          <div class="logo-box-lbl" style="color:rgba(255,255,255,.6)">Nền cam</div>
+          <img src="../logo-horizontal.png" alt="Logo trên nền cam"
+               style="width:82%;height:auto;max-height:none;filter:brightness(0) invert(1)"
+               onerror="this.src='../logo.png'"/>
+          <div class="logo-box-lbl" style="color:rgba(255,255,255,.7)">Nền cam</div>
         </div>
       </div>
     </div>
@@ -542,10 +572,10 @@
           </div>
         </div>
         <div class="swatch">
-          <div class="swatch-color" style="background:#22C55E;height:80px"></div>
+          <div class="swatch-color" style="background:#555555;height:80px"></div>
           <div class="swatch-info" style="padding:10px 14px">
-            <div class="swatch-name" style="font-size:11px">Success</div>
-            <div class="swatch-hex">#22C55E</div>
+            <div class="swatch-name" style="font-size:11px">Mid Gray</div>
+            <div class="swatch-hex">#555555</div>
           </div>
         </div>
       </div>
@@ -722,35 +752,7 @@
   <div class="pg-num">10</div>
 </div>
 
-<script>
-// Tạo logo trắng tự động từ logo.png
-function makeWhiteLogo(src, cb) {
-  var img = new Image();
-  img.onload = function() {
-    var c = document.createElement('canvas');
-    c.width = img.width; c.height = img.height;
-    var ctx = c.getContext('2d');
-    ctx.drawImage(img, 0, 0);
-    var d = ctx.getImageData(0, 0, c.width, c.height), px = d.data;
-    for (var i = 0; i < px.length; i += 4) {
-      if (px[i+3] < 20) continue;
-      var br = (px[i]*299 + px[i+1]*587 + px[i+2]*114) / 1000;
-      if (br > 235) { px[i+3] = 0; }
-      else { px[i] = px[i+1] = px[i+2] = 255; }
-    }
-    ctx.putImageData(d, 0, 0);
-    cb(c.toDataURL('image/png'));
-  };
-  img.src = src;
-}
-window.addEventListener('load', function() {
-  makeWhiteLogo('../logo.png', function(w) {
-    ['lu-v-dark','lu-v-orange'].forEach(function(id) {
-      var el = document.getElementById(id);
-      if (el) el.src = w;
-    });
-  });
-});
-</script>
+<button class="print-btn" onclick="window.print()">⬇ Xuất PDF</button>
+
 </body>
 </html>
